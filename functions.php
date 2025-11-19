@@ -266,6 +266,15 @@ function dr_cabello_enqueue_scripts() {
         true
     );
 
+    // 13.5. Google Maps Error Handler (debe cargarse antes del iframe)
+    wp_enqueue_script( 
+        'dr-cabello-google-maps-error-handler', 
+        DR_CABELLO_THEME_URI . '/assets/js/google-maps-error-handler.js',
+        array(),
+        DR_CABELLO_VERSION,
+        false // Cargar en el head para interceptar errores temprano
+    );
+
     // 14. Google Reviews
     wp_enqueue_script( 
         'dr-cabello-google-reviews', 
