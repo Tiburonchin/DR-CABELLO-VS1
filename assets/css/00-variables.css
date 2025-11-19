@@ -1,0 +1,88 @@
+/*
+========================================
+  THEME VARIABLES
+========================================
+*/
+
+:root {
+    /* Paleta Principal - Prioridad al azul oscuro */
+    --color-primario: #2450b0;
+    --color-secundario: #2596be;
+    --color-blanco: #ffffff;
+    --color-negro: #000000;
+    --color-gris: #d9d9d9;
+    
+    /* Gradientes - Dominancia azul oscuro */
+    --gradiente-primario: linear-gradient(135deg, #2450b0, #1a3d8f);
+    --gradiente-primario-invertido: linear-gradient(135deg, #1a3d8f, #2450b0);
+    --gradiente-primario-vertical: linear-gradient(180deg, #2450b0, #1a3d8f);
+    
+    /* Variantes de Primario (azul oscuro) */
+    --primario-claro: #3668c4;
+    --primario-oscuro: #1a3d8f;
+    --primario-hover: #1d3f94;
+    
+    /* Variantes de Secundario (celeste - solo acentos) */
+    --secundario-claro: #3db4d8;
+    --secundario-oscuro: #1a7899;
+    --secundario-hover: #1e7ca0;
+    
+    /* Variantes de Gris */
+    --gris-claro: #e8e8e8;
+    --gris-medio: #d9d9d9;
+    --gris-oscuro: #a8a8a8;
+    
+    /* Colores Semánticos */
+    --text-light: #ffffff;
+    --text-dark: #000000;
+    --text-primary: #1c2532;
+    --text-secondary: #5a6c82;
+    --text-on-accent: #ffffff;
+    
+    /* Superficies */
+    --surface-1: #ffffff;
+    --surface-2: #f8fafd;
+    --card-bg: #ffffff;
+    --bg-gradient-start: #f4f7fa;
+    --bg-gradient-mid: #ffffff;
+    --bg-gradient-end: #f0f3f6;
+    
+    /* Bordes */
+    --border-color: #d9d9d9;
+    --border-color-light: #e8e8e8;
+    
+    /* Sombras - Azul oscuro dominante con glow celeste */
+    --shadow-main: 0 10px 30px rgba(0, 0, 0, 0.08);
+    --shadow-primario: 0 10px 30px rgba(36, 80, 176, 0.35);
+    --shadow-secundario: 0 10px 30px rgba(37, 150, 190, 0.25);
+    --shadow-glow-celeste: 0 0 40px rgba(61, 180, 216, 0.5), 0 0 80px rgba(61, 180, 216, 0.3);
+    --shadow-glow-celeste-intense: 0 0 60px rgba(61, 180, 216, 0.6), 0 0 100px rgba(61, 180, 216, 0.4), 0 0 140px rgba(61, 180, 216, 0.2);
+    
+    /* Transparencias - Azul oscuro predominante */
+    --surface-1-translucent-heavy: rgba(255, 255, 255, 0.65);
+    --surface-1-translucent-blurry: rgba(255, 255, 255, 0.9);
+    --surface-1-translucent-medium: rgba(248, 250, 253, 0.8);
+    --border-color-translucent-light: rgba(0, 0, 0, 0.05);
+    --surface-hover-lighter: rgba(0, 0, 0, 0.02);
+    --surface-hover-light: rgba(0, 0, 0, 0.05);
+    --surface-hover-medium: rgba(0, 0, 0, 0.06);
+    --primario-translucent: rgba(36, 80, 176, 0.1);
+    --secundario-translucent: rgba(37, 150, 190, 0.08);
+
+    /* Brand Colors (compatibilidad) - Invertidos para usar azul oscuro */
+    --brand-primary: #2450b0;
+    --brand-primary-dark: #1a3d8f;
+    --brand-accent: #2596be;
+
+    /* Typography */
+    --font-primary: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    --font-secondary: 'Outfit', var(--font-primary);
+
+    /* Spacing & Radii */
+    --header-offset: 0px;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+    --radius-full: 999px;
+}

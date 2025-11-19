@@ -1,0 +1,68 @@
+# Node / build
+node_modules/
+dist/
+build/
+
+# OS and editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# PHP / composer
+vendor/
+.env
+
+# WordPress specific - keep only theme files
+wp-config.php
+wp-content/uploads/
+
+# Misc
+*.log
+# WordPress Theme .gitignore
+# ============================
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores e IDEs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependencias
+node_modules/
+vendor/
+
+# Assets compilados (si usas SASS/LESS)
+*.css.map
+*.js.map
+
+# Backups de assets
+assets_backup_*/
+
+# Archivos temporales de WordPress
+*.tmp
+
+# Archivos de caché
+.cache/
+
+# Archivos sensibles (si almacenas configuración local)
+.env
+.env.local
+
+# Archivos de desarrollo
+/tests/
+/cypress/

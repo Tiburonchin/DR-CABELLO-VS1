@@ -1,0 +1,57 @@
+/*
+========================================
+  SPECIFIC COMPONENTS
+========================================
+*/
+.gallery { grid-template-columns: repeat(3, 1fr); }
+.gallery__item {
+    aspect-ratio: 4/3;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #eef2f7, #f8fafd);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-main);
+}
+.testimonials { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.testimonial {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    color: var(--text-secondary);
+}
+.testimonial p { margin: 0 0 10px; color: var(--text-primary); }
+.team { grid-template-columns: repeat(2, 1fr); }
+.member {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 16px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 16px;
+    box-shadow: var(--shadow-main);
+}
+.member__media img {
+    width: 100%;
+    height: 100%;
+    max-height: 280px;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+    background: var(--surface-2);
+}
+.member__name { margin: 4px 0 4px; font-size: 22px; }
+.member__role { margin: 0 0 8px; }
+.member__tags { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 0 0 10px; }
+.member__tags li {
+    padding: 6px 10px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-full);
+    background: var(--surface-hover-lighter);
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+.member__bio { margin: 0 0 10px; color: var(--text-secondary); max-height: 60px; overflow: hidden; transition: max-height .3s ease; }
+.member__bio.is-open { max-height: 300px; }
+.member__toggle { font-size: 14px; padding: 8px 12px; }
+/* WhatsApp FAB removed */

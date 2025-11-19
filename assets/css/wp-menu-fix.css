@@ -1,0 +1,102 @@
+/**
+ * WordPress Menu Fix
+ * Hace que los menús de WordPress se vean como el diseño original
+ */
+
+/* Aplicar estilos de .nav__link a los enlaces del menú de WordPress */
+.nav__list .menu-item > a {
+    /* Copiar todos los estilos de .nav__link */
+    position: relative;
+    display: inline-block;
+    padding: 0.75rem 1rem;
+    color: var(--color-text-light, #2c3e50);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    letter-spacing: 0.3px;
+}
+
+/* Efecto underline */
+.nav__list .menu-item > a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary-color, #2563eb), var(--secondary-color, #7c3aed));
+    transform: translateX(-50%);
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hover effect */
+.nav__list .menu-item > a:hover {
+    color: var(--primary-color, #2563eb);
+    transform: translateY(-2px);
+}
+
+.nav__list .menu-item > a:hover::before,
+.nav__list .menu-item.current-menu-item > a::before,
+.nav__list .menu-item.active > a::before {
+    width: 80%;
+}
+
+/* Active state */
+.nav__list .menu-item.current-menu-item > a,
+.nav__list .menu-item.active > a {
+    color: var(--primary-color, #2563eb);
+    font-weight: 600;
+}
+
+/* When header is scrolled */
+.site-header.scrolled .nav__list .menu-item > a {
+    color: var(--color-text-dark, #1a1a1a);
+}
+
+/* Focus styles for accessibility */
+.nav__list .menu-item > a:focus-visible {
+    outline: 2px solid var(--primary-color, #2563eb);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+/* Remove default WordPress menu styles */
+.nav__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav__list .menu-item {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* Remove sub-menu indicators if not needed */
+.nav__list .menu-item.menu-item-has-children > a::after {
+    display: none; /* Puedes personalizar esto si quieres mostrar un icono de dropdown */
+}
+
+/* Mobile menu styles */
+@media (max-width: 768px) {
+    .nav__list .menu-item > a {
+        padding: 1rem;
+        width: 100%;
+        display: block;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .nav__list .menu-item > a::before {
+        display: none;
+    }
+    
+    .nav__list .menu-item > a:hover {
+        background-color: rgba(255, 255, 255, 0.05);
+        transform: translateX(5px);
+    }
+}

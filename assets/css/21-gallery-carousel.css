@@ -1,0 +1,812 @@
+/*
+========================================
+  GALLERY CAROUSEL SECTION - Premium 3D Carousel
+========================================
+*/
+
+.gallery-carousel-section {
+    position: relative;
+    /* Gradiente de fondo con contraste gris y azul claro - MÁS VISIBLE */
+    background: linear-gradient(135deg, 
+        #e9ecef 0%,
+        #d8e8f0 25%,
+        #f5f5f7 50%,
+        #dbe9f1 75%,
+        #e3e6e8 100%
+    );
+    overflow: hidden;
+    padding: 80px 0px 10px;
+}
+
+/* Capa de puntos radiales - Primera capa MÁS VISIBLE */
+.gallery-carousel-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle, rgba(108, 117, 125, 0.25) 2px, transparent 2px);
+    background-size: 50px 50px;
+    background-position: 0 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Capa de puntos radiales - Segunda capa superpuesta MÁS VISIBLE */
+.gallery-carousel-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle, rgba(0, 143, 204, 0.18) 2px, transparent 2px);
+    background-size: 70px 70px;
+    background-position: 25px 25px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Orbe luminoso 1 - Flotante animado MÁS VISIBLE */
+.gallery-carousel-section .orb-1 {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle at center, 
+        rgba(0, 143, 204, 0.25) 0%, 
+        rgba(108, 117, 125, 0.15) 30%,
+        rgba(0, 143, 204, 0.08) 50%,
+        transparent 70%
+    );
+    filter: blur(60px);
+    pointer-events: none;
+    z-index: 0;
+    animation: floatOrb1 8s ease-in-out infinite;
+}
+
+/* Orbe luminoso 2 - Flotante animado MÁS VISIBLE */
+.gallery-carousel-section .orb-2 {
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    width: 550px;
+    height: 550px;
+    border-radius: 50%;
+    background: radial-gradient(circle at center, 
+        rgba(18, 215, 255, 0.20) 0%, 
+        rgba(173, 181, 189, 0.12) 35%,
+        rgba(0, 180, 255, 0.06) 50%,
+        transparent 70%
+    );
+    filter: blur(70px);
+    pointer-events: none;
+    z-index: 0;
+    animation: floatOrb2 10s ease-in-out infinite;
+}
+
+/* Animación para orbe 1 */
+@keyframes floatOrb1 {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.6;
+    }
+    25% {
+        transform: translate(30px, -20px) scale(1.05);
+        opacity: 0.8;
+    }
+    50% {
+        transform: translate(-20px, -40px) scale(0.95);
+        opacity: 0.7;
+    }
+    75% {
+        transform: translate(20px, -15px) scale(1.02);
+        opacity: 0.75;
+    }
+}
+
+/* Animación para orbe 2 */
+@keyframes floatOrb2 {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.5;
+    }
+    30% {
+        transform: translate(-40px, 30px) scale(1.08);
+        opacity: 0.7;
+    }
+    60% {
+        transform: translate(25px, -25px) scale(0.92);
+        opacity: 0.6;
+    }
+    85% {
+        transform: translate(-15px, 20px) scale(1.03);
+        opacity: 0.65;
+    }
+}
+
+/* Textura decorativa de fondo */
+.gallery-bg-texture {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 30% 40%, rgba(0, 143, 204, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 70% 60%, rgba(108, 117, 125, 0.04) 0%, transparent 50%),
+        linear-gradient(to bottom, transparent 0%, rgba(233, 236, 240, 0.3) 50%, transparent 100%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Container */
+.gallery-carousel-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 10;
+}
+
+/* Header */
+.gallery-header {
+    text-align: center;
+    margin-bottom: 80px;
+    animation: fadeInUp 0.8s ease-out;
+    position: relative;
+    z-index: 10;
+}
+
+.gallery-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 24px;
+    background: linear-gradient(135deg, var(--brand-primary), var(--brand-accent));
+    color: var(--text-light);
+    border-radius: var(--radius-full);
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 20px rgba(0, 143, 204, 0.25);
+}
+
+.gallery-badge svg {
+    animation: rotate 3s linear infinite;
+}
+
+.gallery-title {
+    font-family: var(--font-secondary);
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+    line-height: 1.2;
+}
+
+.gallery-subtitle {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Carousel Track Container */
+.gallery-carousel-track-container {
+    position: relative;
+    width: 100%;
+    height: 750px;
+    margin-bottom: 60px;
+    perspective: 2000px;
+    overflow: visible;
+}
+
+.gallery-carousel-track {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Gallery Slides */
+.gallery-slide {
+    position: absolute;
+    width: 480px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+/* Positioning for 3 visible slides */
+.gallery-slide:nth-child(1) {
+    transform: translateX(-550px) translateZ(-250px) scale(0.85);
+    opacity: 0.6;
+    filter: blur(1px);
+}
+
+.gallery-slide:nth-child(2) {
+    transform: translateX(0) translateZ(0) scale(1);
+    opacity: 1;
+    z-index: 10;
+    filter: blur(0);
+}
+
+.gallery-slide:nth-child(3) {
+    transform: translateX(550px) translateZ(-250px) scale(0.85);
+    opacity: 0.6;
+    filter: blur(1px);
+}
+
+/* Hide other slides */
+.gallery-slide:nth-child(n+4) {
+    transform: translateX(900px) translateZ(-500px) scale(0.7);
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Flip Card Container */
+.gallery-card-flip-container {
+    width: 100%;
+    height: 680px;
+    perspective: 1500px;
+}
+
+/* Gallery Card with Flip Capability */
+.gallery-card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+/* Flipped state */
+.gallery-card.is-flipped {
+    transform: rotateY(180deg);
+}
+
+/* Card Faces (Front and Back) */
+.gallery-card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    background: var(--surface-1);
+    border-radius: var(--radius-xl);
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.1),
+        0 0 0 1px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Front Face (Después - Resultado) */
+.gallery-card-front {
+    transform: rotateY(0deg);
+}
+
+/* Back Face (Antes - Estado Inicial) */
+.gallery-card-back {
+    transform: rotateY(180deg);
+    background: linear-gradient(135deg, 
+        rgba(0, 0, 0, 0.02),
+        rgba(0, 0, 0, 0.01));
+}
+
+/* Enhanced shadow for center card */
+.gallery-slide:nth-child(2) .gallery-card-face {
+    box-shadow: 
+        0 30px 80px rgba(0, 143, 204, 0.15),
+        0 0 0 2px rgba(0, 143, 204, 0.1);
+}
+
+/* Hover effect only on center card */
+.gallery-slide:nth-child(2) .gallery-card:not(.is-flipped):hover {
+    transform: scale(1.02);
+}
+
+.gallery-slide:nth-child(2) .gallery-card.is-flipped:hover {
+    transform: rotateY(180deg) scale(1.02);
+}
+
+/* Image Containers */
+.gallery-image-container {
+    position: relative;
+    width: 100%;
+    flex: 1;
+    overflow: hidden;
+    background: linear-gradient(135deg, 
+        rgba(0, 0, 0, 0.02), 
+        transparent);
+}
+
+.gallery-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.gallery-card:hover .gallery-image-container img {
+    transform: scale(1.05);
+}
+
+/* Flip Hint - Interactive Indicator */
+.flip-hint {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: rgba(0, 143, 204, 0.95);
+    backdrop-filter: blur(10px);
+    color: white;
+    border-radius: var(--radius-full);
+    font-size: 0.875rem;
+    font-weight: 600;
+    box-shadow: 0 4px 20px rgba(0, 143, 204, 0.4);
+    animation: pulseHint 2s ease-in-out infinite;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.flip-hint svg {
+    animation: rotateHint 2s ease-in-out infinite;
+}
+
+/* Hide hint when card is flipped or on non-center cards */
+.gallery-card.is-flipped .gallery-card-front .flip-hint,
+.gallery-slide:not(:nth-child(2)) .flip-hint {
+    opacity: 0;
+    pointer-events: none;
+}
+
+@keyframes pulseHint {
+    0%, 100% {
+        transform: translateX(-50%) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translateX(-50%) scale(1.05);
+        opacity: 0.9;
+    }
+}
+
+@keyframes rotateHint {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+}
+
+/* Image Labels */
+.gallery-image-label {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    padding: 8px 16px;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    color: white;
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    z-index: 3;
+}
+
+.label-icon {
+    font-size: 8px;
+    color: #ff6b6b;
+}
+
+.gallery-image-label-success {
+    background: linear-gradient(135deg, var(--brand-primary), var(--brand-accent));
+    box-shadow: 0 4px 15px rgba(0, 143, 204, 0.3);
+}
+
+.gallery-image-label-success svg {
+    stroke: white;
+}
+
+/* Card Info - Statistics */
+.gallery-card-info {
+    padding: 20px 24px;
+    background: var(--surface-1);
+    border-top: 1px solid var(--border-color);
+}
+
+.gallery-card-stats {
+    display: flex;
+    justify-content: space-around;
+    gap: 16px;
+}
+
+.stat {
+    flex: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 8px 4px;
+    border-radius: var(--radius-sm);
+    transition: all 0.3s ease;
+}
+
+.stat:hover {
+    background: rgba(0, 143, 204, 0.04);
+    transform: translateY(-2px);
+}
+
+.stat-label {
+    font-size: 0.6875rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    font-weight: 600;
+}
+
+.stat-value {
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    font-family: var(--font-secondary);
+    line-height: 1.2;
+}
+
+/* Destacar el nombre del paciente */
+.stat:first-child .stat-value {
+    color: var(--brand-primary);
+    font-size: 1.0625rem;
+    font-weight: 800;
+}
+
+/* Card Message (for back face) */
+.gallery-card-message {
+    text-align: center;
+    padding: 12px 20px;
+}
+
+.gallery-card-message p {
+    font-size: 0.9375rem;
+    color: var(--text-primary);
+    line-height: 1.6;
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Navigation Controls */
+.gallery-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 50px;
+}
+
+.gallery-nav-btn {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--surface-1);
+    border: 2px solid var(--border-color);
+    color: var(--text-primary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.gallery-nav-btn:hover {
+    background: linear-gradient(135deg, var(--brand-primary), var(--brand-accent));
+    border-color: transparent;
+    color: white;
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(0, 143, 204, 0.3);
+}
+
+.gallery-nav-btn:active {
+    transform: scale(0.95);
+}
+
+/* Indicators */
+.gallery-indicators {
+    display: flex;
+    gap: 12px;
+}
+
+.gallery-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--border-color);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.gallery-indicator::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.gallery-indicator:hover {
+    background: var(--brand-primary);
+    transform: scale(1.2);
+}
+
+.gallery-indicator.active {
+    background: linear-gradient(135deg, var(--brand-primary), var(--brand-accent));
+    width: 32px;
+    border-radius: var(--radius-full);
+}
+
+.gallery-indicator.active::before {
+    border-color: var(--brand-accent);
+}
+
+/* Gallery CTA */
+.gallery-cta {
+    text-align: center;
+    padding: 40px 24px;
+    background: linear-gradient(135deg, 
+        rgba(0, 143, 204, 0.03),
+        rgba(18, 215, 255, 0.03));
+    border-radius: var(--radius-xl);
+    border: 1px solid rgba(0, 143, 204, 0.1);
+}
+
+.gallery-cta-text {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+}
+
+.btn-gallery-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 32px;
+    background: linear-gradient(135deg, var(--brand-primary), var(--brand-accent));
+    color: white;
+    border-radius: var(--radius-full);
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    box-shadow: 0 8px 25px rgba(0, 143, 204, 0.25);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-gallery-primary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.2),
+        transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.btn-gallery-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 35px rgba(0, 143, 204, 0.35);
+}
+
+.btn-gallery-primary:hover::before {
+    opacity: 1;
+}
+
+.btn-gallery-primary:active {
+    transform: translateY(0);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .gallery-carousel-track-container {
+        height: 650px;
+    }
+    
+    .gallery-slide {
+        width: 420px;
+    }
+    
+    .gallery-card-flip-container {
+        height: 600px;
+    }
+    
+    .gallery-slide:nth-child(1) {
+        transform: translateX(-480px) translateZ(-200px) scale(0.8);
+    }
+    
+    .gallery-slide:nth-child(3) {
+        transform: translateX(480px) translateZ(-200px) scale(0.8);
+    }
+}
+
+@media (max-width: 768px) {
+    .gallery-carousel-section {
+        padding: 80px 0;
+    }
+    
+    .gallery-header {
+        margin-bottom: 50px;
+    }
+    
+    .gallery-carousel-track-container {
+        height: 580px;
+    }
+    
+    .gallery-slide {
+        width: 360px;
+    }
+    
+    .gallery-card-flip-container {
+        height: 520px;
+    }
+    
+    /* Stack slides vertically on mobile */
+    .gallery-slide:nth-child(1) {
+        transform: translateX(-400px) translateZ(-150px) scale(0.75);
+        opacity: 0.3;
+    }
+    
+    .gallery-slide:nth-child(3) {
+        transform: translateX(400px) translateZ(-150px) scale(0.75);
+        opacity: 0.3;
+    }
+    
+    .gallery-controls {
+        gap: 20px;
+    }
+    
+    .gallery-nav-btn {
+        width: 48px;
+        height: 48px;
+    }
+    
+    .gallery-cta {
+        padding: 30px 20px;
+    }
+    
+    .gallery-cta-text {
+        font-size: 1.125rem;
+    }
+    
+    .btn-gallery-primary {
+        padding: 14px 28px;
+        font-size: 0.9375rem;
+    }
+    
+    .flip-hint {
+        font-size: 0.7rem;
+        padding: 6px 14px;
+        gap: 6px;
+    }
+    
+    .flip-hint svg {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-carousel-track-container {
+        height: 500px;
+    }
+    
+    .gallery-slide {
+        width: 320px;
+    }
+    
+    .gallery-card-flip-container {
+        height: 450px;
+    }
+    
+    /* Show only center slide on small mobile */
+    .gallery-slide:nth-child(1),
+    .gallery-slide:nth-child(3) {
+        opacity: 0;
+        pointer-events: none;
+    }
+    
+    .gallery-card-info {
+        padding: 16px 18px;
+    }
+    
+    .gallery-card-stats {
+        gap: 10px;
+    }
+    
+    .stat {
+        padding: 6px 2px;
+    }
+    
+    .stat-label {
+        font-size: 0.625rem;
+        letter-spacing: 0.5px;
+    }
+    
+    .stat-value {
+        font-size: 0.875rem;
+    }
+    
+    /* Nombre del paciente más destacado en móvil */
+    .stat:first-child .stat-value {
+        font-size: 0.9375rem;
+        font-weight: 800;
+    }
+    
+    .stat:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+    
+    .flip-hint {
+        font-size: 0.65rem;
+        padding: 5px 10px;
+        gap: 5px;
+    }
+    
+    .flip-hint svg {
+        width: 15px;
+        height: 15px;
+    }
+}

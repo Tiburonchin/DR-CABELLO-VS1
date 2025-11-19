@@ -1,0 +1,18 @@
+/*
+========================================
+  UTILITIES
+========================================
+*/
+.container { width: min(1400px, 98%); margin-inline: auto; }
+.section { padding: clamp(56px, 10vw, 96px) 0; }
+.section--xl { padding: clamp(72px, 12vw, 128px) 0; }
+
+/* Extra spacing around the comparador section */
+#comparador.section { margin-block: clamp(12px, 3vw, 40px); }
+.section, section, [id] { scroll-margin-top: var(--header-offset); }
+
+.section--accent { background: radial-gradient(1200px 400px at 50% 0, rgba(0,143,204,0.10), transparent 70%); }
+.section__title { font-size: clamp(28px, 3vw, 40px); margin: 0 0 24px; }
+.section__title--light { color: var(--text-light); }
+.muted { color: var(--text-secondary); }
+.hidden { position: absolute !important; left: -9999px !important; }

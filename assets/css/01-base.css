@@ -1,0 +1,26 @@
+/*
+========================================
+  RESET & GLOBAL STYLES
+========================================
+*/
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: var(--header-offset); }
+html, body { height: 100%; }
+body {
+    margin: 0;
+    font-family: var(--font-primary);
+    color: var(--text-primary);
+    background:
+        radial-gradient(1200px 600px at 15% 25%, rgba(36, 80, 176, 0.20), transparent 60%),
+        radial-gradient(1200px 600px at 85% 75%, rgba(36, 80, 176, 0.18), transparent 60%),
+        linear-gradient(180deg, var(--bg-gradient-start), var(--bg-gradient-mid) 30%, var(--bg-gradient-end) 100%);
+    background-attachment: fixed, fixed, fixed;
+    background-size: 200% 200%, 200% 200%, auto;
+    animation: bg-pan 38s linear infinite;
+    transition: background .3s ease, color .3s ease;
+}
+@keyframes bg-pan {
+    0%   { background-position: 0% 50%, 100% 50%, 0 0; }
+    50%  { background-position: 100% 50%, 0% 50%, 0 0; }
+    100% { background-position: 0% 50%, 100% 50%, 0 0; }
+}

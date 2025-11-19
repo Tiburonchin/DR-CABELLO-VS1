@@ -1,0 +1,37 @@
+/*
+========================================
+  FORMS
+========================================
+*/
+.form {
+    background: var(--surface-1-translucent-medium);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    box-shadow: var(--shadow-main);
+}
+.form__row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form__field { display: grid; gap: 6px; }
+.form__field label { font-size: 14px; color: var(--text-secondary); }
+.form__field input,
+.form__field select,
+.form__field textarea {
+    width: 100%;
+    padding: 12px 12px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+    background: var(--surface-2);
+    color: var(--text-primary);
+    outline: none;
+}
+.form__field input:focus,
+.form__field select:focus,
+.form__field textarea:focus {
+    border-color: var(--brand-primary);
+    box-shadow: 0 0 0 3px rgba(0,143,204,0.22);
+}
+.form__actions { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 10px; flex-wrap: wrap; }
+.checkbox { display: inline-flex; align-items: center; gap: 8px; color: var(--text-secondary); }
+.form__status { margin-top: 10px; min-height: 22px; color: var(--text-secondary); }
+.form__status--ok { color: #6fe1a2; }
+.form__status--err { color: #f39a9a; }

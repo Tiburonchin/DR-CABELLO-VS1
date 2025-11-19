@@ -1,0 +1,799 @@
+/*
+========================================
+  MEDICAL CENTER SECTION
+  Sección profesional del centro médico
+========================================
+*/
+
+/* Contenedor principal de la sección médica */
+.medical-center-section {
+    /* Posicionamiento */
+    position: relative;
+    z-index: 50; /* ✅ CORREGIDO: Aumentado para evitar oclusión */
+    
+    /* Espaciado */
+    padding: 100px 0;
+    
+    /* Fondo sólido - importante para cubrir el parallax */
+    background: linear-gradient(135deg, 
+        #f8fafd 0%, 
+        #ffffff 25%, 
+        #f0f8fc 50%, 
+        #f8fafd 100%);
+    
+    /* Overflow */
+    overflow: hidden;
+    
+    /* ✅ CORREGIDO: Visibilidad garantizada en móviles */
+    visibility: visible;
+    opacity: 1;
+}
+
+.medical-center-container {
+    position: relative;
+    width: 100%;
+}
+
+/* Fondo con patrón médico */
+.medical-pattern-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.medical-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(0, 143, 204, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 143, 204, 0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    animation: gridMove 20s linear infinite;
+}
+
+@keyframes gridMove {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(60px, 60px); }
+}
+
+/* Moléculas flotantes */
+.floating-molecules {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.molecule {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: rgba(18, 215, 255, 0.6);
+    border-radius: 50%;
+    animation: moleculeFloat 15s ease-in-out infinite;
+}
+
+.molecule::before {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(0, 143, 204, 0.4);
+    border-radius: 50%;
+    top: -10px;
+    left: -2px;
+}
+
+.molecule::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: rgba(18, 215, 255, 0.3);
+    border-radius: 50%;
+    top: 12px;
+    right: -8px;
+}
+
+.molecule-1 {
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.molecule-2 {
+    top: 60%;
+    left: 80%;
+    animation-delay: 5s;
+}
+
+.molecule-3 {
+    top: 40%;
+    left: 20%;
+    animation-delay: 10s;
+}
+
+.molecule-4 {
+    top: 80%;
+    left: 70%;
+    animation-delay: 7s;
+}
+
+@keyframes moleculeFloat {
+    0%, 100% { 
+        transform: translate(0, 0) rotate(0deg); 
+        opacity: 0.6;
+    }
+    25% { 
+        transform: translate(30px, -20px) rotate(90deg); 
+        opacity: 0.8;
+    }
+    50% { 
+        transform: translate(-10px, -40px) rotate(180deg); 
+        opacity: 1;
+    }
+    75% { 
+        transform: translate(-30px, -10px) rotate(270deg); 
+        opacity: 0.7;
+    }
+}
+
+/* Contenido médico */
+.medical-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* Header de la sección médica */
+.medical-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.medical-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(0, 143, 204, 0.2);
+    border-radius: var(--radius-full);
+    color: var(--brand-primary);
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 20px rgba(0, 143, 204, 0.1);
+    animation: badgeGlow 3s ease-in-out infinite;
+}
+
+@keyframes badgeGlow {
+    0%, 100% { box-shadow: 0 4px 20px rgba(0, 143, 204, 0.1); }
+    50% { box-shadow: 0 4px 30px rgba(0, 143, 204, 0.2); }
+}
+
+.medical-badge svg {
+    width: 18px;
+    height: 18px;
+}
+
+.medical-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.title-highlight {
+    font-family: var(--font-secondary);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--brand-primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.title-main {
+    font-family: var(--font-secondary);
+    font-size: 3rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--text-primary), var(--brand-primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.2;
+}
+
+.medical-subtitle {
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Grid de servicios médicos */
+.medical-services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    margin-bottom: 80px;
+    
+    /* ✅ CORREGIDO: Visibilidad garantizada */
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.medical-service-card {
+    /* ✅ CORREGIDO: Background sólido como fallback */
+    background: #ffffff;
+    background: rgba(255, 255, 255, 0.95);
+    
+    /* ✅ CORREGIDO: backdrop-filter con prefijos y fallback */
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    
+    border: 1px solid rgba(0, 143, 204, 0.1);
+    border-radius: var(--radius-xl);
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 32px rgba(0, 143, 204, 0.08);
+    
+    /* ✅ CORREGIDO: Visibilidad garantizada */
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* ✅ NUEVO: Fallback para navegadores sin backdrop-filter */
+@supports not (backdrop-filter: blur(20px)) {
+    .medical-service-card {
+        background: #ffffff;
+        background: rgba(255, 255, 255, 0.98);
+    }
+}
+
+.medical-service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--brand-primary), var(--brand-accent));
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+.medical-service-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(0, 143, 204, 0.2);
+    box-shadow: 0 20px 50px rgba(0, 143, 204, 0.15);
+}
+
+.medical-service-card:hover::before {
+    transform: scaleX(1);
+}
+
+/* Icono del servicio */
+.service-icon {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--brand-primary), var(--brand-accent));
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    box-shadow: 0 8px 24px rgba(0, 143, 204, 0.3);
+}
+
+.service-icon svg {
+    width: 36px;
+    height: 36px;
+    color: white;
+    z-index: 2;
+}
+
+.icon-pulse {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background: rgba(18, 215, 255, 0.3);
+    border-radius: var(--radius-lg);
+    transform: translate(-50%, -50%);
+    animation: iconPulse 2s ease-in-out infinite;
+}
+
+@keyframes iconPulse {
+    0%, 100% { 
+        transform: translate(-50%, -50%) scale(1); 
+        opacity: 0.3; 
+    }
+    50% { 
+        transform: translate(-50%, -50%) scale(1.2); 
+        opacity: 0; 
+    }
+}
+
+/* Contenido del servicio */
+.service-content h3 {
+    font-family: var(--font-secondary);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+}
+
+.service-content p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.service-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.service-features li {
+    padding: 8px 0;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    position: relative;
+    padding-left: 8px;
+}
+
+.service-features li:before {
+    content: '✓';
+    color: var(--brand-primary);
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+/* Estadísticas del centro */
+.medical-stats {
+    margin-bottom: 60px;
+    
+    /* ✅ CORREGIDO: Visibilidad garantizada */
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    padding: 40px 0;
+    
+    /* ✅ CORREGIDO: Visibilidad garantizada */
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 30px 20px;
+    
+    /* ✅ CORREGIDO: Background sólido como fallback */
+    background: #ffffff;
+    background: rgba(255, 255, 255, 0.9);
+    
+    /* ✅ CORREGIDO: backdrop-filter con prefijos */
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
+    
+    border: 1px solid rgba(0, 143, 204, 0.1);
+    border-radius: var(--radius-lg);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    
+    /* ✅ CORREGIDO: Visibilidad garantizada */
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* ✅ NUEVO: Fallback para navegadores sin backdrop-filter */
+@supports not (backdrop-filter: blur(15px)) {
+    .stat-item {
+        background: #ffffff;
+        background: rgba(255, 255, 255, 0.98);
+    }
+}
+
+.stat-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(18, 215, 255, 0.1), transparent);
+    transition: left 0.6s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-4px);
+    border-color: rgba(0, 143, 204, 0.2);
+    box-shadow: 0 12px 32px rgba(0, 143, 204, 0.12);
+}
+
+.stat-item:hover::before {
+    left: 100%;
+}
+
+.stat-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--brand-primary), var(--brand-accent));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    box-shadow: 0 4px 16px rgba(0, 143, 204, 0.3);
+}
+
+.stat-icon svg {
+    width: 28px;
+    height: 28px;
+    color: white;
+}
+
+.stat-content {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 4px;
+    margin-bottom: 12px;
+}
+
+.stat-number {
+    font-family: var(--font-secondary);
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--brand-primary);
+    line-height: 1;
+}
+
+.stat-plus {
+    font-family: var(--font-secondary);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--brand-accent);
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 0;
+}
+
+/* Call to Action */
+.medical-cta {
+    background: linear-gradient(135deg, 
+        rgba(0, 143, 204, 0.05) 0%, 
+        rgba(18, 215, 255, 0.05) 100%);
+    border: 1px solid rgba(0, 143, 204, 0.1);
+    border-radius: var(--radius-xl);
+    padding: 50px;
+    text-align: center;
+    
+    /* ✅ CORREGIDO: backdrop-filter con prefijos */
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    
+    position: relative;
+    overflow: hidden;
+    
+    /* ✅ CORREGIDO: Visibilidad garantizada */
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.medical-cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(18, 215, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(0, 143, 204, 0.08) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.cta-content {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 32px;
+}
+
+.cta-content h3 {
+    font-family: var(--font-secondary);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+}
+
+.cta-content p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+.cta-actions {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 2;
+    
+    /* ✅ CORREGIDO: Visibilidad garantizada */
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Botones médicos */
+.btn-medical-primary,
+.btn-medical-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 32px;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-medical-primary {
+    background: linear-gradient(135deg, var(--brand-primary), var(--brand-accent));
+    color: white;
+    box-shadow: 0 4px 16px rgba(0, 143, 204, 0.3);
+}
+
+.btn-medical-secondary {
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--brand-primary);
+    border: 1px solid rgba(0, 143, 204, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.btn-medical-primary::before,
+.btn-medical-secondary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn-medical-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 143, 204, 0.4);
+}
+
+.btn-medical-secondary:hover {
+    transform: translateY(-2px);
+    background: white;
+    border-color: var(--brand-primary);
+    box-shadow: 0 8px 25px rgba(0, 143, 204, 0.2);
+}
+
+.btn-medical-primary:hover::before,
+.btn-medical-secondary:hover::before {
+    left: 100%;
+}
+
+.btn-medical-primary svg,
+.btn-medical-secondary svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .medical-services-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    
+    .stats-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+    
+    .title-main {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .medical-center-section {
+        padding: 60px 0;
+        margin: 40px 0;
+        
+        /* ✅ CORREGIDO: Asegurar visibilidad en móviles */
+        min-height: auto;
+        display: block !important;
+    }
+    
+    .medical-header {
+        margin-bottom: 50px;
+    }
+    
+    .title-main {
+        font-size: 2rem;
+    }
+    
+    .medical-subtitle {
+        font-size: 1rem;
+    }
+    
+    .medical-service-card {
+        padding: 30px;
+        /* ✅ CORREGIDO: Forzar visibilidad */
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+    
+    .stats-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        /* ✅ CORREGIDO: Forzar visibilidad */
+        display: grid !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+    
+    .stat-item {
+        /* ✅ CORREGIDO: Forzar visibilidad */
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+    
+    .medical-cta {
+        padding: 30px 20px;
+        /* ✅ CORREGIDO: Forzar visibilidad */
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+    
+    .cta-actions {
+        flex-direction: column;
+        align-items: center;
+        /* ✅ CORREGIDO: Forzar visibilidad */
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+    
+    .btn-medical-primary,
+    .btn-medical-secondary {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+        /* ✅ CORREGIDO: Forzar visibilidad */
+        display: inline-flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .medical-service-card {
+        padding: 24px;
+    }
+    
+    .service-icon {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .service-icon svg {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .stat-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .stat-icon svg {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+    
+    .cta-content h3 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Animaciones para estadísticas */
+@keyframes countUp {
+    from { 
+        transform: translateY(20px);
+        opacity: 0; 
+    }
+    to { 
+        transform: translateY(0);
+        opacity: 1; 
+    }
+}
+
+.stat-number.animate {
+    animation: countUp 0.6s ease-out;
+}
+
+/* Efectos de hover para accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+    .molecule,
+    .medical-grid,
+    .icon-pulse,
+    .medical-badge {
+        animation: none;
+    }
+    
+    .medical-service-card,
+    .stat-item,
+    .btn-medical-primary,
+    .btn-medical-secondary {
+        transition: none;
+    }
+}
+
+/* Modo de alto contraste */
+@media (prefers-contrast: high) {
+    .medical-center-section {
+        background: white;
+    }
+    
+    .medical-service-card {
+        background: white;
+        border: 2px solid var(--brand-primary);
+    }
+    
+    .stat-item {
+        background: white;
+        border: 2px solid var(--brand-primary);
+    }
+}

@@ -1,0 +1,52 @@
+/*
+========================================
+    DOCTOR CABELLO - STYLESHEET PRINCIPAL
+    Archivo CSS consolidado que importa todos los módulos
+========================================
+*/
+
+/* ============================================
+   VARIABLES Y BASE
+   ============================================ */
+@import url('./00-variables.css');
+@import url('./01-base.css');
+@import url('./02-utilities.css');
+
+/* ============================================
+   COMPONENTES DE LAYOUT
+   ============================================ */
+@import url('./03-header.css');
+@import url('./04-nav.css');
+@import url('./11-footer.css');
+@import url('./16-footer-effects.css');
+
+/* ============================================
+   COMPONENTES UI
+   ============================================ */
+@import url('./05-buttons.css');
+@import url('./08-ribbon.css');
+@import url('./09-grids-cards.css');
+@import url('./10-forms.css');
+@import url('./12-components.css');
+
+/* ============================================
+   SECCIONES ESPECÍFICAS
+   ============================================ */
+@import url('./13-compare.css');
+@import url('./15-floating-social.css');
+@import url('./17-medical-center.css');
+@import url('./18-doctor-profile.css');
+@import url('./19-contact-advanced.css');
+@import url('./20-servicios-premium.css');
+@import url('./21-gallery-carousel.css');
+@import url('./22-hero-medical.css');
+@import url('./23-video-gallery.css');
+@import url('./24-google-reviews-clean.css');
+@import url('./25-candidate-section.css');
+@import url('./26-medicamentos.css');
+
+/* ============================================
+   UTILIDADES Y RESPONSIVE
+   ============================================ */
+@import url('./98-helpers.css');
+@import url('./99-responsive.css');

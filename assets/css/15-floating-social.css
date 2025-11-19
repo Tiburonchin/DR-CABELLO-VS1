@@ -1,0 +1,229 @@
+/* ===========================
+   FLOATING SOCIAL MENU
+   =========================== */
+
+/* Barra lateral fija y estática, sin animaciones */
+.floating-social-menu {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 2px solid rgba(36, 80, 176, 0.582);  /* Borde azul oscuro definido */
+    border-radius: 25px;
+    padding: 15px 0;
+    transition: none;
+    animation: none;
+}
+
+
+.floating-social-item {
+    width: 48px;
+    height: 48px;
+    margin: 4px 0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.floating-social-item::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.floating-social-item:hover::before {
+    opacity: 1;
+}
+
+.floating-social-item a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-radius: 50%;
+    position: relative;
+    z-index: 1;
+}
+
+.floating-social-item:hover a {
+    color: #ffffff;
+    transform: scale(1.1);
+}
+
+.floating-social-item svg {
+    width: 20px;
+    height: 20px;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+    display: block;
+    flex-shrink: 0;
+}
+
+.floating-social-toggle {
+    margin-top: 10px;
+    padding: 8px 0;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.toggle-text {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #2450b0; /* Azul oscuro */
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5),
+                 0 0 8px rgba(37, 150, 190, 0.3);  /* Resplandor celeste suave */
+    white-space: nowrap;
+    transform: rotate(180deg);
+}
+
+/* Efectos adicionales para cada red social */
+.floating-social-item:nth-child(1):hover {
+    background: rgba(24, 119, 242, 0.2); /* Facebook blue - más sutil */
+    box-shadow: 0 0 15px rgba(24, 119, 242, 0.4);
+}
+
+.floating-social-item:nth-child(2):hover {
+    background: rgba(225, 48, 108, 0.2); /* Instagram gradient - más sutil */
+    box-shadow: 0 0 15px rgba(225, 48, 108, 0.4);
+}
+
+.floating-social-item:nth-child(3):hover {
+    background: rgba(255, 0, 0, 0.2); /* YouTube red - más sutil */
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+}
+
+.floating-social-item:nth-child(4):hover {
+    background: rgba(37, 211, 102, 0.2); /* WhatsApp green - más sutil */
+    box-shadow: 0 0 15px rgba(37, 211, 102, 0.4);
+}
+
+/* Colores específicos para cada red social */
+.floating-social-item:nth-child(1) a {
+    color: #1877f2; /* Facebook blue */
+}
+
+.floating-social-item:nth-child(2) a {
+    color: #e1306c; /* Instagram pink */
+}
+
+.floating-social-item:nth-child(3) a {
+    color: #ff0000; /* YouTube red */
+}
+
+.floating-social-item:nth-child(4) a {
+    color: #25D366; /* WhatsApp green */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .floating-social-menu {
+        right: 15px;
+        padding: 12px 0;
+    }
+    
+    .floating-social-item {
+        width: 44px;
+        height: 44px;
+        margin: 3px 0;
+    }
+    
+    .floating-social-item svg {
+        width: 18px;
+        height: 18px;
+    }
+    
+    .toggle-text {
+        font-size: 9px;
+    }
+}
+
+/* Ocultar en pantallas menores a 500px (solo celulares) */
+@media (max-width: 500px) {
+    .floating-social-menu {
+        display: none !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .floating-social-menu {
+        right: 10px;
+        padding: 10px 0;
+    }
+    
+    .floating-social-item {
+        width: 40px;
+        height: 40px;
+        margin: 2px 0;
+    }
+    
+    .floating-social-item svg {
+        width: 16px;
+        height: 16px;
+    }
+    
+    .toggle-text {
+        font-size: 8px;
+        letter-spacing: 0.5px;
+    }
+}
+
+/* Animación de entrada cuando se hace scroll */
+.floating-social-menu.show {
+    animation: slideInRight 0.5s ease-out;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateY(-50%) translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(-50%) translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Efecto de pulso sutil - DESACTIVADO */
+.floating-social-menu::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(135deg, 
+        rgba(135, 207, 235, 0.11) 0%, 
+        rgba(30, 143, 255, 0.185) 100%);
+    border-radius: 32px;
+    z-index: -1;
+    /* animation: pulse 3s infinite; - REMOVIDO */
+}
+
+/* @keyframes pulse {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.6;
+        transform: scale(1.02);
+    }
+} - ANIMACIÓN DESACTIVADA */

@@ -1,0 +1,36 @@
+/*
+========================================
+  NAVIGATION - RESPONSIVE BEHAVIOR
+========================================
+*/
+
+/* Desktop navigation is handled in 03-header.css */
+
+/* Mobile & Tablet specific styles handled in 99-responsive.css */
+
+/* Smooth scrolling for anchor links */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--header-offset, 120px); /* Account for fixed header */
+}
+
+/* Active link indicator - enhanced visibility */
+.nav__link.active {
+    color: var(--color-primario) !important;
+    font-weight: 600 !important;
+}
+
+.nav__link.active::before {
+    transform: translateX(-50%) scaleX(1) !important;
+}
+
+.nav__cta.active {
+    background: var(--gradiente-primario) !important;
+    box-shadow: var(--shadow-primario) !important;
+}
+
+/* Focus states for better accessibility */
+.nav__link:focus-visible {
+    outline: 2px solid var(--color-primario);
+    outline-offset: 4px;
+}

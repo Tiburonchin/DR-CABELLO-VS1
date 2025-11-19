@@ -1,0 +1,15 @@
+/*
+========================================
+  HELPERS & ANIMATIONS
+========================================
+*/
+.reveal { opacity: 0; transform: translateY(10px); transition: opacity .5s ease, transform .5s ease; }
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+[data-parallax] { will-change: transform; transition: transform .2s ease-out; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) {
+    body { animation: none; }
+    .ribbon__glow { animation: none; }
+    .ribbon__inner { animation: none; }
+}
+@keyframes ribbon-pan { 0% { --x: 0%; } 100% { --x: 100%; } }

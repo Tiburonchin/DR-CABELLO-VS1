@@ -1,0 +1,567 @@
+/*
+========================================
+  MEDICAMENTOS SECTION
+  Sección de medicamentos capilares - Diseño elegante y sutil
+========================================
+*/
+
+/* ===== SECCIÓN PRINCIPAL ===== */
+.medicamentos-section {
+    position: relative;
+    padding: 100px 0;
+    overflow: hidden;
+    background: #ffffff;
+}
+
+
+.medicamentos-section.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.medicamentos-section.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.medicamentos-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background: linear-gradient(180deg, #f8fafd 0%, #ffffff 100%);
+}
+
+.medicamentos-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.4;
+    background-image: 
+        radial-gradient(circle at 20% 30%, rgba(36, 80, 176, 0.02) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(37, 150, 190, 0.02) 0%, transparent 50%);
+}
+
+.medicamentos-container {
+    position: relative;
+    z-index: 1;
+}
+
+/* ===== HEADER ===== */
+.medicamentos-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.medicamentos-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 24px;
+    background: rgba(36, 80, 176, 0.08);
+    color: var(--color-primario);
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(36, 80, 176, 0.15);
+    transition: all 0.3s ease;
+}
+
+.medicamentos-badge:hover {
+    background: rgba(36, 80, 176, 0.12);
+    border-color: rgba(36, 80, 176, 0.25);
+}
+
+.medicamentos-badge svg {
+    width: 18px;
+    height: 18px;
+}
+
+.medicamentos-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-primario);
+    margin-bottom: 16px;
+    line-height: 1.2;
+}
+
+.medicamentos-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    max-width: 650px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* ===== GRID DE MEDICAMENTOS ===== */
+.medicamentos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+    padding: 0 20px;
+}
+
+/* ===== TARJETAS DE MEDICAMENTOS ===== */
+.medicamento-card {
+    position: relative;
+    background: white;
+    border-radius: 16px;
+    padding: 35px 28px;
+    box-shadow: 0 4px 20px rgba(36, 80, 176, 0.06);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(36, 80, 176, 0.08);
+    overflow: visible;
+}
+
+.medicamento-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 35px rgba(36, 80, 176, 0.12);
+    border-color: rgba(36, 80, 176, 0.2);
+}
+
+/* Tarjeta destacada - Diseño sutil */
+.medicamento-destacado {
+    background: linear-gradient(135deg, rgba(36, 80, 176, 0.03) 0%, rgba(37, 150, 190, 0.03) 100%);
+    border: 2px solid var(--color-primario);
+    position: relative;
+}
+
+.medicamento-destacado::after {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    background: linear-gradient(135deg, var(--color-primario), var(--color-secundario));
+    border-radius: 16px;
+    z-index: -1;
+    opacity: 0.1;
+}
+
+.medicamento-destacado:hover {
+    border-color: var(--color-secundario);
+}
+
+.medicamento-badge-destacado {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--color-primario);
+    color: white;
+    padding: 6px 16px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 12px rgba(36, 80, 176, 0.25);
+}
+
+/* ===== ELEMENTOS DE LA TARJETA ===== */
+.medicamento-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+.medicamento-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, rgba(36, 80, 176, 0.08), rgba(37, 150, 190, 0.08));
+    border: 2px solid var(--color-primario);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.medicamento-card:hover .medicamento-icon {
+    background: var(--color-primario);
+    transform: scale(1.05);
+    color: #ffffff
+}
+
+.medicamento-card:hover .medicamento-icon svg {
+    stroke: white;
+}
+
+.medicamento-destacado .medicamento-icon {
+    background: linear-gradient(135deg, rgba(36, 80, 176, 0.15), rgba(37, 150, 190, 0.15));
+    border-color: var(--color-primario);
+}
+
+.medicamento-icon svg {
+    stroke: var(--color-primario);
+    transition: all 0.3s ease;
+    width: 36px;
+    height: 36px;
+}
+
+.medicamento-label {
+    background: rgba(36, 80, 176, 0.08);
+    color: var(--color-primario);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    border: 1px solid rgba(36, 80, 176, 0.15);
+}
+
+.medicamento-nombre {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--color-primario);
+    margin-bottom: 8px;
+}
+
+.medicamento-concentracion {
+    color: var(--color-secundario);
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 16px;
+}
+
+.medicamento-descripcion {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 24px;
+    font-size: 0.95rem;
+}
+
+/* ===== BENEFICIOS ===== */
+.medicamento-beneficios {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px 0;
+}
+
+.medicamento-beneficios li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(36, 80, 176, 0.08);
+    transition: all 0.2s ease;
+}
+
+.medicamento-beneficios li:last-child {
+    border-bottom: none;
+}
+
+.medicamento-beneficios li:hover {
+    padding-left: 5px;
+    color: var(--color-primario);
+}
+
+.medicamento-beneficios svg {
+    flex-shrink: 0;
+    stroke: var(--color-secundario);
+    width: 18px;
+    height: 18px;
+}
+
+/* ===== FOOTER DE TARJETA ===== */
+.medicamento-footer {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(36, 80, 176, 0.1);
+}
+
+.medicamento-aplicacion {
+    display: block;
+    color: var(--text-secondary);
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+/* ===== DISCLAIMER ===== */
+.medicamentos-disclaimer {
+    display: flex;
+    gap: 20px;
+    background: linear-gradient(135deg, #fffbf0 0%, #fff8e1 100%);
+    border-left: 4px solid #ff9800;
+    padding: 28px;
+    border-radius: 12px;
+    margin-bottom: 50px;
+    box-shadow: 0 4px 15px rgba(255, 152, 0, 0.08);
+}
+
+.disclaimer-icon {
+    flex-shrink: 0;
+}
+
+.disclaimer-icon svg {
+    stroke: #f57c00;
+    width: 28px;
+    height: 28px;
+}
+
+.disclaimer-content {
+    flex: 1;
+}
+
+.disclaimer-title {
+    color: #e65100;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.disclaimer-text {
+    color: #5d4037;
+    line-height: 1.7;
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+/* ===== CTA SECTION ===== */
+.medicamentos-cta {
+    text-align: center;
+    background: linear-gradient(135deg, var(--color-primario) 0%, var(--primario-oscuro) 100%);
+    padding: 50px 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(36, 80, 176, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.medicamentos-cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at top right, rgba(255, 255, 255, 0.1) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.medicamentos-cta-title {
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 14px;
+    position: relative;
+    z-index: 1;
+}
+
+.medicamentos-cta-text {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+    margin-bottom: 28px;
+    position: relative;
+    z-index: 1;
+}
+
+.btn-medicamentos-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: white;
+    color: var(--color-primario);
+    padding: 16px 36px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    position: relative;
+    z-index: 1;
+}
+
+.btn-medicamentos-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+    background: var(--color-secundario);
+    color: white;
+}
+
+.btn-medicamentos-primary svg {
+    transition: transform 0.3s ease;
+    width: 20px;
+    height: 20px;
+}
+
+.btn-medicamentos-primary:hover svg {
+    transform: translateX(4px);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+    .medicamentos-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+    }
+    
+    .medicamentos-title {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .medicamentos-section {
+        padding: 80px 0;
+    }
+    
+    .medicamentos-header {
+        margin-bottom: 50px;
+    }
+    
+    .medicamentos-title {
+        font-size: 1.9rem;
+    }
+    
+    .medicamentos-subtitle {
+        font-size: 1rem;
+    }
+    
+    .medicamentos-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 10px;
+    }
+    
+    .medicamento-card {
+        padding: 28px 24px;
+    }
+    
+    .medicamento-icon {
+        width: 65px;
+        height: 65px;
+    }
+    
+    .medicamento-icon svg {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .medicamento-nombre {
+        font-size: 1.4rem;
+    }
+    
+    .medicamento-badge-destacado {
+        top: 15px;
+        right: 15px;
+        padding: 5px 14px;
+        font-size: 0.65rem;
+    }
+    
+    .medicamentos-disclaimer {
+        flex-direction: column;
+        padding: 24px;
+    }
+    
+    .medicamentos-cta {
+        padding: 40px 25px;
+    }
+    
+    .medicamentos-cta-title {
+        font-size: 1.5rem;
+    }
+    
+    .btn-medicamentos-primary {
+        padding: 14px 30px;
+        font-size: 0.95rem;
+    }
+    
+    /* Asegurar que las tarjetas sean visibles en mobile sin animación complicada */
+    .medicamento-card {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .medicamentos-badge {
+        padding: 8px 18px;
+        font-size: 0.8rem;
+    }
+    
+    .medicamentos-title {
+        font-size: 1.6rem;
+    }
+    
+    .medicamento-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .medicamento-label {
+        align-self: flex-start;
+    }
+    
+    .medicamento-badge-destacado {
+        position: static;
+        display: inline-block;
+        margin-bottom: 15px;
+    }
+    
+    /* Asegurar que las tarjetas sean visibles */
+    .medicamento-card {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+    }
+}
+
+/* ===== ANIMACIONES SUTILES ===== */
+/* Solo en desktop para mejor rendimiento en mobile */
+@media (min-width: 769px) and (prefers-reduced-motion: no-preference) {
+    .medicamento-card {
+        animation: fadeInUp 0.5s ease-out backwards;
+    }
+    
+    .medicamento-card:nth-child(1) {
+        animation-delay: 0.1s;
+    }
+    
+    .medicamento-card:nth-child(2) {
+        animation-delay: 0.2s;
+    }
+    
+    .medicamento-card:nth-child(3) {
+        animation-delay: 0.3s;
+    }
+    
+    .medicamento-card:nth-child(4) {
+        animation-delay: 0.4s;
+    }
+}
+
+/* Asegurar que las tarjetas sean visibles en mobile */
+@media (max-width: 768px) {
+    .medicamento-card {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
