@@ -26,22 +26,17 @@
                 <!-- Brand section with enhanced design -->
                 <div class="footer-brand">
                     <a href="<?php echo esc_url( home_url( '/#top' ) ); ?>" class="brand brand--footer">
-                        <div class="brand__icon">
-                            <svg viewBox="0 0 40 40" class="brand__logo-svg">
-                                <defs>
-                                    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                        <stop offset="0%" style="stop-color:#12d7ff"/>
-                                        <stop offset="100%" style="stop-color:#008fcc"/>
-                                    </linearGradient>
-                                </defs>
-                                <circle cx="20" cy="20" r="18" fill="url(#logoGradient)" stroke="white" stroke-width="2"/>
-                                <text x="20" y="26" font-family="Outfit" font-weight="700" font-size="16" fill="white" text-anchor="middle">Dr.C</text>
-                            </svg>
-                        </div>
-                        <div class="brand__text">
-                            <span class="brand__name"><?php bloginfo( 'name' ); ?></span>
-                            <span class="brand__tagline"><?php echo esc_html( get_bloginfo( 'description' ) ?: 'Clínica Especializada' ); ?></span>
-                        </div>
+                        <?php 
+                        if ( has_custom_logo() ) {
+                            the_custom_logo();
+                        } else {
+                            ?>
+                            <img src="<?php echo esc_url( dr_cabello_asset_url( 'assets/img/logoA.webp' ) ); ?>" 
+                                 alt="<?php bloginfo( 'name' ); ?>" 
+                                 class="logo__image" />
+                            <?php
+                        }
+                        ?>
                     </a>
                     <p class="footer-description">
                         <?php 

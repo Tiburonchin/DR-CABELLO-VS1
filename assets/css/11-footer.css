@@ -54,9 +54,7 @@
 }
 
 .brand--footer {
-    display: flex;
-    align-items: center;
-    gap: 16px;
+    display: inline-block;
     text-decoration: none;
     margin-bottom: 24px;
     transition: transform 0.3s ease;
@@ -66,38 +64,13 @@
     transform: translateY(-2px);
 }
 
-.brand__icon {
-    position: relative;
-}
-
-.brand__logo-svg {
-    width: 56px;
-    height: 56px;
+.brand--footer .logo__image {
+    height: 58px;
+    width: auto;
+    display: block;
+    object-fit: contain;
     transition: all 0.3s ease;
-}
-
-.brand--footer:hover .brand__logo-svg {
-    transform: scale(1.05);
-}
-
-.brand__text {
-    display: flex;
-    flex-direction: column;
-}
-
-.brand__name {
-    font-family: var(--font-secondary);
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    line-height: 1.2;
-}
-
-.brand__tagline {
-    font-size: 0.9rem;
-    color: var(--color-primario);
-    font-weight: 500;
-    margin-top: 2px;
+    max-width: 100%;
 }
 
 .footer-description {
@@ -666,28 +639,4 @@
     }
 }
 
-/* Animation enhancements */
-@media (prefers-reduced-motion: no-preference) {
-    .footer-section {
-        animation: fadeInUp 0.6s ease-out forwards;
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    
-    .footer-section:nth-child(1) { animation-delay: 0.1s; }
-    .footer-section:nth-child(2) { animation-delay: 0.2s; }
-    .footer-section:nth-child(3) { animation-delay: 0.3s; }
-    .footer-section:nth-child(4) { animation-delay: 0.4s; }
-    
-    @keyframes fadeInUp {
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-}
-
-/* Intersection Observer trigger class */
-.footer-revealed .footer-section {
-    animation: fadeInUp 0.6s ease-out forwards;
-}
+/* Animation enhancements - REMOVIDAS para mejorar visibilidad */
